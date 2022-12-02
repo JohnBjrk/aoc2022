@@ -23,22 +23,22 @@ defmodule Day01Test do
   end
 
   test "Day 02 Part 1 Test" do
-    strategy_guide = Helpers.read_lines!("test/data/day02_test.txt")
+    strategy_guide = Helpers.read_lines_flow!("test/data/day02_test.txt")
     assert(Day02.part1(strategy_guide) == 15)
   end
 
   test "Day 02 Part 1" do
-    strategy_guide = Helpers.read_lines!("test/data/day02.txt")
+    strategy_guide = Helpers.read_lines_flow!("test/data/day02.txt")
     assert(Day02.part1(strategy_guide) == 13675)
   end
 
   test "Day 02 Part 2 Test" do
-    strategy_guide = Helpers.read_lines!("test/data/day02_test.txt")
+    strategy_guide = Helpers.read_lines_flow!("test/data/day02_test.txt")
     assert(Day02.part2(strategy_guide) == 12)
   end
 
   test "Day 02 Part 2" do
-    strategy_guide = Helpers.read_lines!("test/data/day02.txt")
+    strategy_guide = Helpers.read_lines_flow!("test/data/day02.txt")
     assert(Day02.part2(strategy_guide) == 14184)
   end
 

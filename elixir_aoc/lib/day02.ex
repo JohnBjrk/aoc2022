@@ -2,8 +2,8 @@ defmodule Day02 do
 
   defp parse_rounds(strategy_guide) do
     strategy_guide
-      |> Enum.map(&String.split/1)
-      |> Enum.map(fn round_list ->
+      |> Flow.map(&String.split/1)
+      |> Flow.map(fn round_list ->
         round_list |> Enum.map(fn hand ->
           case hand do
             "A" -> 1
@@ -15,12 +15,12 @@ defmodule Day02 do
           end
         end)
       end)
-      |> Enum.map(fn [elf, you] -> {elf, you} end)
+      |> Flow.map(fn [elf, you] -> {elf, you} end)
   end
 
   defp calculate_score_1(rounds) do
     rounds
-      |> Enum.map(fn round ->
+      |> Flow.map(fn round ->
         case round do
           {a, a} -> a + 3
           {1, a} when a == 2 -> a + 6
@@ -33,7 +33,7 @@ defmodule Day02 do
 
   defp calculate_score_2(rounds) do
     rounds
-      |> Enum.map(fn round ->
+      |> Flow.map(fn round ->
         case round do
           {1, 1} -> 3
           {2, 1} -> 1
