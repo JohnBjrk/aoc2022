@@ -3,13 +3,6 @@ import gleam/list.{flat_map, fold, map, sized_chunk, unique}
 import gleam/int.{add}
 import gleam/io.{debug}
 
-fn is_uppercase(utf8value: Int) -> Bool {
-  case utf8value {
-    value if value >= 65 && value <= 90 -> True
-    _ -> False
-  }
-}
-
 fn search_compartment(compartment: String) {
   fn(found_items: List(String), item: String) {
     case
@@ -31,11 +24,22 @@ fn search_rucksacks(rucksack1: String, rucksack2: String) {
   }
 }
 
-fn get_value(item: String) -> Int {
-  let <<v:int>> = <<item:utf8>>
-  case is_uppercase(v) {
-    True -> v - 65 + 27
-    False -> v - 97 + 1
+fn get_priority(item: String) -> Int {
+  case is_uppercase(item) {
+    True -> utf8value(item) - utf8value("A") + 27
+    False -> utf8value(item) - utf8value("a") + 1
+  }
+}
+
+fn utf8value(char: String) {
+  let <<value:int>> = <<char:utf8>>
+  value
+}
+
+fn is_uppercase(char: String) -> Bool {
+  case utf8value(char) {
+    value if value >= 65 && value <= 90 -> True
+    _ -> False
   }
 }
 
@@ -51,7 +55,7 @@ pub fn part1(rucksacks: List(String)) -> Int {
     |> fold([], search_compartment(compartment2))
     |> unique()
   })
-  |> map(get_value)
+  |> map(get_priority)
   |> fold(0, add)
 }
 
@@ -64,6 +68,6 @@ pub fn part2(rucksacks: List(String)) -> Int {
     |> fold([], search_rucksacks(rucksack2, rucksack3))
     |> unique()
   })
-  |> map(get_value)
+  |> map(get_priority)
   |> fold(0, add)
 }
