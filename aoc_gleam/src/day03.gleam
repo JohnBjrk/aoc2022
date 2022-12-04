@@ -31,8 +31,8 @@ fn get_priority(item: String) -> Int {
   }
 }
 
-fn utf8value(char: String) {
-  let <<value:int>> = <<char:utf8>>
+pub fn utf8value(char: String) {
+  assert <<value:int>> = <<char:utf8>>
   value
 }
 

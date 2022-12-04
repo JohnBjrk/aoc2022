@@ -3,6 +3,7 @@ import gleeunit/should
 import helpers/input
 import day02
 import day03
+import day04
 
 pub fn main() {
   gleeunit.main()
@@ -60,4 +61,32 @@ pub fn day03_part2_test() {
   rucksacks
   day03.part2(rucksacks)
   |> should.equal(2425)
+}
+
+pub fn day04_part1_example_test() {
+  let pairs = input.read_lines("test/data/day04_test.txt")
+  pairs
+  day04.part1(pairs)
+  |> should.equal(2)
+}
+
+pub fn day04_part1_test() {
+  let pairs = input.read_lines("test/data/day04.txt")
+  pairs
+  day04.part1(pairs)
+  |> should.equal(503)
+}
+
+pub fn day04_part2_example_test() {
+  let pairs = input.read_lines("test/data/day04_test.txt")
+  pairs
+  day04.part2(pairs)
+  |> should.equal(4)
+}
+
+pub fn day04_part2_test() {
+  let pairs = input.read_lines("test/data/day04.txt")
+  pairs
+  day04.part2(pairs)
+  |> should.equal(503)
 }
