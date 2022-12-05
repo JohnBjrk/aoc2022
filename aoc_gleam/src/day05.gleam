@@ -53,9 +53,7 @@ fn init_stacks(stack_indexes: String) {
 }
 
 fn parse_stacks(stacks: Map(Int, List(String)), crates: List(String)) {
-  let indexes =
-    map.keys(stacks)
-    |> list.sort(int.compare)
+  let indexes = list.range(1, list.length(map.keys(stacks)))
 
   crates
   |> fold(stacks, fn(stacks, layer) { parse_layer(indexes, stacks, layer) })
