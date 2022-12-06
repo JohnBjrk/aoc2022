@@ -5,6 +5,7 @@ import day02
 import day03
 import day04
 import day05
+import day06
 
 pub fn main() {
   gleeunit.main()
@@ -118,4 +119,28 @@ pub fn day05_part2_test() {
     input.read_chunks_of_lines("test/data/day05.txt")
   day05.part2(stacks_and_instructions)
   |> should.equal("QNDWLMGNS")
+}
+
+pub fn day06_part1_example_test() {
+  let signals = input.read_lines("test/data/day06_example.txt")
+  day06.part1(signals)
+  |> should.equal([7, 5, 6, 10, 11])
+}
+
+pub fn day06_part1_test() {
+  let signals = input.read_lines("test/data/day06.txt")
+  day06.part1(signals)
+  |> should.equal([1282])
+}
+
+pub fn day06_part2_example_test() {
+  let signals = input.read_lines("test/data/day06_example.txt")
+  day06.part2(signals)
+  |> should.equal([19, 23, 23, 29, 26])
+}
+
+pub fn day06_part2_test() {
+  let signals = input.read_lines("test/data/day06.txt")
+  day06.part2(signals)
+  |> should.equal([3513])
 }
